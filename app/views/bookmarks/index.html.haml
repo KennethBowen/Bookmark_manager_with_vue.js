@@ -10,7 +10,7 @@
   %tbody
     - @bookmarks.each do |bookmark|
       %tr
-        %td= link_to bookmark.url, "http://" + bookmark.url
+        %td= link_to "http://" +bookmark.url, "http://" +bookmark.url
         %td= bookmark.title
         %td
           %p.input-group

@@ -1,6 +1,5 @@
 class CrawlController < ApplicationController
   def index
-    binding.pry
     url = params[:url]
     document = Nokogiri::HTML(HTTParty.get("http://#{url}"))
 
