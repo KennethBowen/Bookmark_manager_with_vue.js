@@ -25,7 +25,8 @@ class BookmarksController < ApplicationController
   # POST /bookmarks.json
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.slug = Digest::SHA1.hexdigest bookmark.slug
+    #prevents user from setting slug, slug picks up the first six letters of the URL
+    @bookmark.slug = Digest::SHA1.hexdigest(@bookmark.url)[0...6]
     respond_to do |format|
       if @bookmark.save
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
