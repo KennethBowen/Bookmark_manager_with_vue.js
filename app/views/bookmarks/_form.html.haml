@@ -6,11 +6,13 @@
         - @bookmark.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  %p
     = f.label :url
-    = f.text_field :url
-  .field
+  %p
+    = f.text_field :url, class: "form-control"
+  %p
     = f.label :title
-    = f.text_field :title
-  .actions
-    = f.submit 'Save'
+  %p
+    = f.text_field :title, class: "form-control"
+  %p
+    = f.submit 'Save', class: "btn btn-primary"
