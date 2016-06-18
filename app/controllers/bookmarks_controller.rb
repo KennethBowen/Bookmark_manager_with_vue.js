@@ -23,9 +23,9 @@ class BookmarksController < ApplicationController
 
   # POST /bookmarks
   # POST /bookmarks.json
+    #prevents user from setting slug, slug picks up the first six letters of the URL
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    #prevents user from setting slug, slug picks up the first six letters of the URL
     @bookmark.slug = Digest::SHA1.hexdigest(@bookmark.url)[0...6]
     respond_to do |format|
       if @bookmark.save
@@ -70,6 +70,6 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:url, :title)
+      params.require(:bookmark).permit(:url, :title, :image, :paragraph)
     end
 end
