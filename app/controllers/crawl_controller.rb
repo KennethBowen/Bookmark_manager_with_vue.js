@@ -1,7 +1,8 @@
 class CrawlController < ApplicationController
   def index
+    binding.pry
     url = params[:url]
-    document = Nokogiri::HTML(HTTParty.get(url))
+    document = Nokogiri::HTML(HTTParty.get("http://#{url}"))
 
     #use css method to base content off of css selector
     title = document.css("title").first.text
