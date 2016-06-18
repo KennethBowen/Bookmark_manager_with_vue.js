@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   #visit_path(slug)
   get "/:slug" => "visit#index", as: :visit
-  get "/crawl/:url" => "crawl#index", as: :crawl
-  
+  #constraint allows for a string with any value
+  get "/crawl/:url" => "crawl#index", as: :crawl, contraints: { url: /.*/}
+
   root 'bookmarks#index'
 
 end
