@@ -6,6 +6,8 @@
         - @bookmark.errors.full_messages.each do |msg|
           %li= msg
 
+  %p.flash.bg-danger.text-danger{ "v-if": "error" }{(error)}
+
   %p
     = f.label :url
   %p
